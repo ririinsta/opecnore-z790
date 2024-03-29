@@ -1,6 +1,6 @@
 # OpenCore Z790 Build Config
 
-### disclaimer
+## disclaimer
 this works for me but might not for you. also thanks [XTVJ](https://github.com/xtvj) for the base efi folder that i mutilated to work for me.
 
 Before running you need to do a few things. 
@@ -11,7 +11,7 @@ Before running you need to do a few things.
 5. If you have a different CPU make sure to change the RestrictEvents CPU name in config.plist.
 6. If you have a WiFi card please go to the OpenCore guide to get it working. I do not have a supported WiFi card so this EFI does not have any wifi kexts.
 
-### Build
+## Build
 
 - Motherboard：Gigabyte Z790 Aorus Elite AX (V1.0)
 - CPU：i7-14700k
@@ -21,9 +21,24 @@ Before running you need to do a few things.
 - OpenCore ：0.9.8
 - Bios：(will update when i chcek)
 
-### Guides
+## Status
 
-#### Disabling NootRX
+### Working
+
+- All iServices
+- Graphics acceleration
+- All E and P cores
+- Just about everything
+
+### Not Working
+
+- WiFi
+- Bluetooth
+- Anything depending on the two above
+
+## Guides
+
+### Disabling NootRX
 
 1. Mount your EFI and open your config.plist in [Proper Tree](https://github.com/corpnewt/ProperTree).
   - If you are following this guide I have a feeling you have the slightest idea how to use it. If you do not I will have a basic tutorial somewhere here.
@@ -31,7 +46,7 @@ Before running you need to do a few things.
 3. Find the Enabled key under this.
 4. Switch the Enabled key from True to False.
 
-#### Generating SMBIOS details
+### Generating SMBIOS details
 
 1. Mount your EFI and open your config.plist in [Proper Tree](https://github.com/corpnewt/ProperTree).
 2. Go to Root>PlatformInfo>Generic
@@ -44,7 +59,7 @@ Before running you need to do a few things.
 7. Copy SmUUID from GenSMBIOS into the SystemUUID field.
 8. For the ROM copy your PC's primary ethernet adapter's MAC Address into it.
 
-#### Finding a layout for your motherboard
+### Finding a layout for your motherboard
 
 This is only for if the pre-selected layout does not work for you. This guide also assumes you already have macOS installed.
 
@@ -57,17 +72,17 @@ This is only for if the pre-selected layout does not work for you. This guide al
 7. Find the key "boot-args" under Root>NVRAM>7C436110-AB2A-4BBB-A880-FE41995C9F82
 8. Change alcid=1 in the boot-args to alcid=(your layout)
 
-#### Changing your CPU name
+### Changing your CPU name
 
 1. Mount your EFI and open your config.plist in [Proper Tree](https://github.com/corpnewt/ProperTree)
 2. Find the key revcpuname under Root>NVRAM>Add>4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102
 3. Change the value of the key to whatever you want.
 
-#### Using ProperTree
+### Using ProperTree
 
 Using ProperTree is increadibly straight forward. I can not explain well enough how it works so I am going to link you to the [OpenCore Guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/#creating-your-config-plist). Look through any of the config.plist guides and it will be very self explainitory.
 
-#### Mounting Your EFI
+### Mounting Your EFI
 
 This is also very very easy.
 
